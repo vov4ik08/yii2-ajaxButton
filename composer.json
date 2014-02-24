@@ -1,0 +1,22 @@
+{
+    "name": "apollo/yii2-AjaxButton",
+    "description": "AjaxButton",
+    "version": "0.0.1",
+    "homepage": "http://google.com",
+    "keywords": ["Ajax,button"],
+    "license": "MIT",
+
+
+
+
+    "require": {
+        "php": ">=5.4",
+        "yiisoft/yii2": "*"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Apollo\\": ""
+        }
+    }
+}
