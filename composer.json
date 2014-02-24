@@ -1,9 +1,9 @@
 {
-    "name": "apollo/yii2-AjaxButton",
+    "name": "apollo/yii2-ajaxButton",
     "description": "AjaxButton",
     "version": "0.0.1",
     "homepage": "http://google.com",
-    "keywords": ["Ajax,button"],
+    "keywords": ["ajax,button"],
     "license": "MIT",
 
 
