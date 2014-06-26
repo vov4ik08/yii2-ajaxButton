@@ -33,7 +33,7 @@ class AjaxButton extends Button
     {
         $view=$this->getView();
         $this->ajaxOptions=Json::encode($this->ajaxOptions);
-        $view->registerJs("$( '#".$this->options['id']."' ).click(function() {
+        $view->registerJs("$( '#".$this->options['id']."' ).click(function(event) {
                 $.ajax(
 
                 ". $this->ajaxOptions."
