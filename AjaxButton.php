@@ -16,6 +16,7 @@ use yii\helpers\Json;
 class AjaxButton extends Button
 {
     public $ajaxOptions = [];
+    public $afterClick;
 
     public function run()
     {
@@ -34,6 +35,7 @@ class AjaxButton extends Button
         $view=$this->getView();
         $this->ajaxOptions=Json::encode($this->ajaxOptions);
         $view->registerJs("$( '#".$this->options['id']."' ).click(function(event) {
+ ". $this->afterClick."
                 $.ajax(
 
                 ". $this->ajaxOptions."
