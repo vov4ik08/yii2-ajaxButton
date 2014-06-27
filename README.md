@@ -6,6 +6,7 @@ Usage:
 \Apollo\AjaxButton::begin(['label'=>'label','ajaxOptions'=>[
 
     'type'=>'POST',
+    'afterClick'=>new \yii\web\JsExpression('alert(Clicked)');
     'url'=>'google',
     'success'=>new \yii\web\JsExpression('function(){location.reload()}'),
     'beforeSend'=> new \yii\web\JsExpression("function(){
