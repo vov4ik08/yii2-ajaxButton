@@ -17,6 +17,7 @@ class AjaxButton extends Button
 {
     public $ajaxOptions = [];
     public $afterClick;
+    public $elements;
 
     public function run()
     {
@@ -34,7 +35,14 @@ class AjaxButton extends Button
     {
         $view=$this->getView();
         $this->ajaxOptions=Json::encode($this->ajaxOptions);
-        $view->registerJs("$( '#".$this->options['id']."' ).click(function(event) {
+        $ids='#'.$this->elements['id'];
+        if(is_array($this->elements['id']))
+        {
+            $ids=implode(',#',$this->elements['id']);
+            $ids="#".$ids;
+        }
+
+        $view->registerJs("$( '$ids' ).click(function(event) {
  ". $this->afterClick."
                 $.ajax(
 

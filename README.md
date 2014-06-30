@@ -3,7 +3,11 @@
 Usage:
 
 ```php
-\Apollo\AjaxButton::begin(['label'=>'label','ajaxOptions'=>[
+\Apollo\AjaxButton::begin(['label'=>'label',
+'elements'=>['id'=>array of id's] // generate code for id's as $( '#id1','#id2'.... ).click(function(event){...}
+
+
+'ajaxOptions'=>[
 
     'type'=>'POST',
     'afterClick'=>new \yii\web\JsExpression('alert(Clicked)');
