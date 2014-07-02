@@ -21,7 +21,9 @@ class AjaxButton extends Button
 
     public function run()
     {
-        echo Html::tag($this->tagName, $this->encodeLabel ? Html::encode($this->label) : $this->label, $this->options);
+        if (!empty ($this->label)) {
+            echo Html::tag($this->tagName, $this->encodeLabel ? Html::encode($this->label) : $this->label, $this->options);
+        }
         $this->registerPlugin('button');
 
         if (!empty($this->ajaxOptions)) {
@@ -33,20 +35,19 @@ class AjaxButton extends Button
 
     protected function registerAjaxScript()
     {
-        $view=$this->getView();
-        $this->ajaxOptions=Json::encode($this->ajaxOptions);
-        $ids='#'.$this->elements['id'];
-        if(is_array($this->elements['id']))
-        {
-            $ids=implode(',#',$this->elements['id']);
-            $ids="#".$ids;
+        $view = $this->getView();
+        $this->ajaxOptions = Json::encode($this->ajaxOptions);
+        $ids = '#' . $this->elements['id'];
+        if (is_array($this->elements['id'])) {
+            $ids = implode(',#', $this->elements['id']);
+            $ids = "#" . $ids;
         }
 
         $view->registerJs("$( '$ids' ).click(function(event) {
- ". $this->afterClick."
+ " . $this->afterClick . "
                 $.ajax(
 
-                ". $this->ajaxOptions."
+                " . $this->ajaxOptions . "
 
               );
             });");
